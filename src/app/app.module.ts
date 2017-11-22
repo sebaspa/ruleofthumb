@@ -8,12 +8,14 @@ import { app_routing } from './app.routes';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { RulingsComponent } from './components/rulings/rulings.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		NavbarComponent,
-		HomeComponent
+		HomeComponent,
+		RulingsComponent
 	],
 	imports: [
 		BrowserModule,
