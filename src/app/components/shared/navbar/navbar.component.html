@@ -3,17 +3,17 @@
     <div class="row">
       <div class="col-md-12">
         <nav class="navbar navbar-expand-lg navbar-dark">
-          <a class="navbar-brand" href="#">Rule of Thumb</a>
+          <a class="navbar-brand" [routerLink]="['home']">Rule of Thumb</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Past Trials</a>
+                <a class="nav-link" [routerLink]="['past-trials']">Past Trials</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">How It Works</a>
+                <a class="nav-link" [routerLink]="['how-it-works']">How It Works</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Log In / Sign Up</a>

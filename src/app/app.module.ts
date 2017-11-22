@@ -9,13 +9,19 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { RulingsComponent } from './components/rulings/rulings.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { PastrialsComponent } from './components/pastrials/pastrials.component';
+import { HowitworksComponent } from './components/howitworks/howitworks.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		NavbarComponent,
 		HomeComponent,
-		RulingsComponent
+		RulingsComponent,
+		FooterComponent,
+		PastrialsComponent,
+		HowitworksComponent
 	],
 	imports: [
 		BrowserModule,
