@@ -1,0 +1,116 @@
+#banner {
+	width     : 100%;
+	height    : 100vh;
+	margin-top: -6.4rem;
+	color     : #fff;
+	@media screen and (max-width: 992px) {
+		height    : auto;
+		margin-top: 0;
+	}
+
+	.container-img {
+		.img-p {
+			object-fit: cover;
+			width     : 100%;
+			height    : 100vh;
+			position  : absolute;
+			z-index   : 10;
+			@media screen and (max-width: 992px) {
+				position: relative;
+				height  : auto;
+				padding : 0 15px;
+			}
+		}
+	}
+
+	.container-text-box {
+		@media screen and (max-width: 992px) {
+			max-width: 100% !important;
+		}
+
+		.cont-p {
+			position       : relative;
+			z-index        : 20;
+			display        : flex;
+			flex-direction : column;
+			justify-content: center;
+			min-height     : 100vh;
+			@media screen and (max-width: 992px) {
+				min-height: auto;
+				display   : block;
+			}
+
+			.cont-box {
+				width     : 100%;
+				background: rgba(51,51,51,0.8);
+				padding   : 3rem;
+
+				p {
+					margin: 0;
+				}
+
+				.txt-1 {
+					font-size: 1.6em;
+				}
+
+				.txt-2 {
+					font-size    : 6em;
+					line-height  : 1;
+					margin-bottom: 20px;
+					@media screen and (max-width: 992px) {
+						font-size: 4em;
+					}
+					@media screen and (max-width: 768px) {
+						font-size: 3.5em;
+					}
+				}
+
+				.txt-3 {
+					font-size    : 2em;
+					line-height  : 1.2;
+					margin-bottom: 20px;
+				}
+			}
+
+			.cont-link {
+				margin-bottom: 4rem;
+
+				a {
+					color          : #fff;
+					font-size      : 1.2em;
+					text-decoration: underline;
+					margin-left    : 0.8em;
+				}
+			}
+
+			.cont-vote {
+				display        : flex;
+				align-items    : center;
+				justify-content: center;
+
+				div {
+					flex-grow : 1;
+					text-align: center;
+					font-size : 4em;
+					cursor    : pointer;
+				}
+
+				.cont-like {
+					background: rgba($color-like, 0.9);
+
+					&:hover {
+						background: rgba(darken($color-like, 10), 0.9);
+					}
+				}
+
+				.cont-dislike {
+					background: rgba($color-dislike, 0.9);
+
+					&:hover {
+						background: rgba(darken($color-dislike, 10), 0.9);
+					}
+				}
+			}
+		}
+	}
+}
