@@ -1,27 +1,29 @@
 // Fuentes
-html, body{
-	font-family: 'Lato', sans-serif;
-	font-size: 10px;
-}
 
+body,
+html {
+	font-family: 'Lato', sans-serif;
+	font-size  : 10px;
+}
 //Colores
 $color-like: #1cbbb4;
 $color-dislike: #ffad1d;
-
 //Clases
-.font-light{
+.font-light {
 	font-weight: 300;
 }
 
-.font-bold{
+.font-bold {
 	font-weight: 700;
 }
 
-.clear{
+.clear {
 	clear: both;
 }
 
-ul, li, p{
-	margin: 0;
+li,
+p,
+ul {
+	margin : 0;
 	padding: 0;
 }

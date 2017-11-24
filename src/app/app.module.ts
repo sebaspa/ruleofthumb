@@ -3,8 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+//Rutas
 import { app_routing } from './app.routes';
 
+//Servicios
+import { charactersService } from './services/characters.service';
+
+//Componentes
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -12,6 +17,7 @@ import { RulingsComponent } from './components/rulings/rulings.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PastrialsComponent } from './components/pastrials/pastrials.component';
 import { HowitworksComponent } from './components/howitworks/howitworks.component';
+import { RoundPipe } from './pipes/round.pipe';
 
 @NgModule({
 	declarations: [
@@ -21,7 +27,8 @@ import { HowitworksComponent } from './components/howitworks/howitworks.componen
 		RulingsComponent,
 		FooterComponent,
 		PastrialsComponent,
-		HowitworksComponent
+		HowitworksComponent,
+		RoundPipe
 	],
 	imports: [
 		BrowserModule,
@@ -29,7 +36,9 @@ import { HowitworksComponent } from './components/howitworks/howitworks.componen
 		HttpModule,
 		app_routing
 	],
-	providers: [],
+	providers: [
+		charactersService
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

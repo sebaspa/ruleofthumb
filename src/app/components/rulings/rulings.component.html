@@ -5,121 +5,44 @@
         <h2 class="font-light">Previous Rulings</h2>
       </div>
     </div>
+    <div *ngIf="voted" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Thanks!</strong> For voting.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6" *ngFor="let artist of characters">
         <div class="artist">
-          <img class="photo" src="/assets/images/artists/kany-west.jpg" alt="keny" width="100%" height="auto">
+          <img class="photo" [src]="artist.img" [alt]="artist.name" width="100%" height="auto">
           <div class="cont-info">
             <div class="cont-info-detail">
               <div class="cont-name">
                 <a href="#" class="btn-like"><i class="fa fa-thumbs-up"></i></a>
-                <p class="name">Kanye West</p>
+                <p class="name">{{artist.name}}</p>
               </div>
               <div class="clear"></div>
               <div class="cont-data">
-                <p class="desc">Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.</p>
+                <p class="desc">{{artist.desc}}</p>
                 <div class="cont-other-info">
-                  <a href="#" class="btn-view-full ">View Full Report</a>
-                  <p class="">1 month ago <br>in Entretainment</p>
+                  <div class="cont-btn-vote">
+                    <button [disabled]="voting" (click)="seltypeVote(true, artist.id - 1)" class="btn-vote btn-like"><i class="fa fa-thumbs-up"></i></button>
+                    <button [disabled]="voting" (click)="seltypeVote(false, artist.id - 1)" class="btn-vote btn-dislike"><i class="fa fa-thumbs-down"></i></button>
+                    <button type="button" (click)="vote(artist.id - 1)" disabled="disabled" id="btn-vote-now-{{ artist.id -1 }}" class="btn-view-full">
+                      <span *ngIf="!voting">Vote now</span>
+                      <span *ngIf="voting">Voting...</span>
+                    </button>
+                  </div>
+                  <p class="">{{artist.month}} month ago <br>in {{artist.type}}</p>
                 </div>
               </div>
               <div class="clear"></div>
               <div class="cont-percent">
-                <div class="percent-like" style="flex: 1 1 64%;">
-                  <p><i class="fa fa-thumbs-up"></i> 64%</p>
+                <div class="percent-like" [style.flex]="1">
+                  <p><i class="fa fa-thumbs-up"></i> {{ (artist.votes.likes ) / (artist.votes.likes + artist.votes.dislikes) * 100 | round }}%</p>
                 </div>
-                <div class="percent-dislike" style="flex: 1 1 36%;">
-                  <p><i class="fa fa-thumbs-down"></i> 36%</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="artist">
-          <img class="photo" src="/assets/images/artists/mark.jpg" alt="mark" width="100%" height="auto">
-          <div class="cont-info">
-            <div class="cont-info-detail">
-              <div class="cont-name">
-                <a href="#" class="btn-like"><i class="fa fa-thumbs-up"></i></a>
-                <p class="name">Mark Zuckerberg</p>
-              </div>
-              <div class="clear"></div>
-              <div class="cont-data">
-                <p class="desc">Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.</p>
-                <div class="cont-other-info">
-                  <a href="#" class="btn-view-full ">View Full Report</a>
-                  <p class="">1 month ago <br>in Entretainment</p>
-                </div>
-              </div>
-              <div class="clear"></div>
-              <div class="cont-percent">
-                <div class="percent-like" style="flex: 1 1 36%;">
-                  <p><i class="fa fa-thumbs-up"></i> 36%</p>
-                </div>
-                <div class="percent-dislike" style="flex: 1 1 64%;">
-                  <p><i class="fa fa-thumbs-down"></i> 64%</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="artist">
-          <img class="photo" src="/assets/images/artists/cristina.jpg" alt="Cristina Fernández de Kirchner" width="100%" height="auto">
-          <div class="cont-info">
-            <div class="cont-info-detail">
-              <div class="cont-name">
-                <a href="#" class="btn-like"><i class="fa fa-thumbs-up"></i></a>
-                <p class="name">Cristina Fernández de Kirchner</p>
-              </div>
-              <div class="clear"></div>
-              <div class="cont-data">
-                <p class="desc">Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.</p>
-                <div class="cont-other-info">
-                  <a href="#" class="btn-view-full ">View Full Report</a>
-                  <p class="">1 month ago <br>in Entretainment</p>
-                </div>
-              </div>
-              <div class="clear"></div>
-              <div class="cont-percent">
-                <div class="percent-like" style="flex: 1 1 36%;">
-                  <p><i class="fa fa-thumbs-up"></i> 36%</p>
-                </div>
-                <div class="percent-dislike" style="flex: 1 1 64%;">
-                  <p><i class="fa fa-thumbs-down"></i> 64%</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="artist">
-          <img class="photo" src="/assets/images/artists/malala.jpg" alt="malala" width="100%" height="auto">
-          <div class="cont-info">
-            <div class="cont-info-detail">
-              <div class="cont-name">
-                <a href="#" class="btn-like"><i class="fa fa-thumbs-up"></i></a>
-                <p class="name">Malala Yousafzai</p>
-              </div>
-              <div class="clear"></div>
-              <div class="cont-data">
-                <p class="desc">Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.</p>
-                <div class="cont-other-info">
-                  <a href="#" class="btn-view-full ">View Full Report</a>
-                  <p class="">1 month ago <br>in Entretainment</p>
-                </div>
-              </div>
-              <div class="clear"></div>
-              <div class="cont-percent">
-                <div class="percent-like" style="flex: 1 1 36%;">
-                  <p><i class="fa fa-thumbs-up"></i> 36%</p>
-                </div>
-                <div class="percent-dislike" style="flex: 1 1 64%;">
-                  <p><i class="fa fa-thumbs-down"></i> 64%</p>
+                <div class="percent-dislike" [style.width.%]="(artist.votes.dislikes ) / (artist.votes.likes + artist.votes.dislikes) * 100 | round">
+                  <p><i class="fa fa-thumbs-down"></i> {{ (artist.votes.dislikes ) / (artist.votes.likes + artist.votes.dislikes) * 100 | round }}%</p>
                 </div>
               </div>
             </div>
