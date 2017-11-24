@@ -26,8 +26,8 @@
                 <p class="desc">{{artist.desc}}</p>
                 <div class="cont-other-info">
                   <div class="cont-btn-vote">
-                    <button [disabled]="voting" (click)="seltypeVote(true, artist.id - 1)" class="btn-vote btn-like"><i class="fa fa-thumbs-up"></i></button>
-                    <button [disabled]="voting" (click)="seltypeVote(false, artist.id - 1)" class="btn-vote btn-dislike"><i class="fa fa-thumbs-down"></i></button>
+                    <button [disabled]="voting" (click)="seltypeVote(true, artist.id - 1)" id="btn-vote-like-{{artist.id - 1}}" class="btn-vote btn-like"><i class="fa fa-thumbs-up"></i></button>
+                    <button [disabled]="voting" (click)="seltypeVote(false, artist.id - 1)" id="btn-vote-dislike-{{artist.id - 1}}" class="btn-vote btn-dislike"><i class="fa fa-thumbs-down"></i></button>
                     <button type="button" (click)="vote(artist.id - 1)" disabled="disabled" id="btn-vote-now-{{ artist.id -1 }}" class="btn-view-full">
                       <span *ngIf="!voting">Vote now</span>
                       <span *ngIf="voting">Voting...</span>

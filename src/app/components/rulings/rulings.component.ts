@@ -58,10 +58,10 @@ export class RulingsComponent implements OnInit {
 	}
 
 	seltypeVote(typeVote: boolean, id: number) {
-		// this.render.setElementClass(event.target, "active", true);
-		// console.log(this.render);
 		document.getElementsByClassName("btn-view-full")[0].setAttribute("disabled", "disabled");
 		document.getElementById("btn-vote-now-" + id).removeAttribute("disabled");
+		this.render.setElementClass(event.target, "active", true);
+
 
 		this.voted = false;
 		this.voting = false;
